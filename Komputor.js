@@ -4,7 +4,9 @@ let loanSum = document.getElementById("loanT")
 let loanText = document.getElementById("loanText")
 loanText.style.display ='none'
 
+//let balance = document.getElementById("balance")
 let balanceSum = Number(document.getElementById("balance").innerText)
+
 let MaxLoan = balanceSum*2
 
 let buttonLoan = document.getElementById('loan')
@@ -29,6 +31,8 @@ buttonLoan.onclick = () => {
     }else{
         loanSum.innerText = loanRequest
         buttonRepay.style.display='block'
+        balanceSum = balanceSum + loanRequest
+        balance.innerText = balanceSum
     }
 }
 }
@@ -162,9 +166,12 @@ fetch("https://noroff-komputer-store-api.herokuapp.com/computers")
 
 const ImagePlace = document.getElementById("image")
 ImagePlace.style.display ='none'
+let ChoiceLargerScope = ""
+let PriceNumberLargerScope = ""
 
 function getValueAndDisplay(){
     const Choice = document.getElementById("laptopList").value
+    ChoiceLargerScope = Choice
     const features = document.getElementById("info")
     
     specList = []
@@ -188,7 +195,8 @@ function getValueAndDisplay(){
 
     PriceText = laptopPrice[index]
     Price.innerText = PriceText+" "
-
+    PriceNumber = Number(PriceText)
+    PriceNumberLargerScope = PriceNumber
     //////////////////Laptop images
     ImagePlace.style.display ='block'
     ImagePlace.style.height = '150px'
@@ -199,4 +207,20 @@ function getValueAndDisplay(){
     let imageURL = "https://noroff-komputer-store-api.herokuapp.com/"+image
 
     ImagePlace.src = imageURL
+}
+
+//////////////////The buy button
+let buttonBuy = document.getElementById("BuyButton")
+let balanceSum3 = document.getElementById("balance")
+
+buttonBuy.onclick = () => { 
+        let balanceSum3Number = Number(document.getElementById("balance").innerText)
+        if (PriceNumberLargerScope>balanceSum3Number){
+            alert("You do not have sufficient funds to buy this Laptop")
+        }else if (balanceSum3Number>=PriceNumberLargerScope){
+            alert("You are now the proud owner of the "+ChoiceLargerScope)
+            balanceSum3Number = balanceSum3Number - PriceNumberLargerScope
+            balanceSum3.innerText = balanceSum3Number
+        }
+
 }
