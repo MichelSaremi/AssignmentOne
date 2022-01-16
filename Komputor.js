@@ -124,3 +124,48 @@ buttonRepay.onclick = () => {
     }
 }
 
+//////////////////////////////////////////Laptop part
+
+//////Laptop selection
+const laptopList = document.getElementById("laptopList")
+const laptopTitle = [];
+const laptopSpecs = [];
+
+
+fetch("https://noroff-komputer-store-api.herokuapp.com/computers")
+
+.then(function(response){
+    return response.json();
+})
+
+.then(function(laptopObj){
+    for(laptop of laptopObj){
+        laptopTitle.push(laptop.title)
+        laptopSpecs.push(laptop.specs)
+    }
+    //////////populationg dropdown list
+    for(let i=0; i<laptopTitle.length; i++){
+        const newItem = document.createElement("option")
+        newItem.value = laptopTitle[i]
+        newItem.innerText = laptopTitle[i]
+        laptopList.appendChild(newItem)
+    }
+})
+.catch(function(error){
+    console.log(error)
+})
+
+function getValueAndDisplay(){
+    const Choice = document.getElementById("laptopList").value
+    const features = document.getElementById("info")
+    
+    specList = []
+    let index = laptopTitle.indexOf(Choice)
+    let specText = laptopSpecs[index]
+    for (let spec of specText){
+        specList.push("\n"+spec)
+
+    }
+    features.innerText = specList
+    
+}

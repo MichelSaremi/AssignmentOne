@@ -2,7 +2,7 @@ body {
     background-color: white;
 }
 
-#bankPanel, #workPanel {
+#bankPanel, #workPanel, #laptopSelect {
     padding: 0px 20px 20px 20px;
     background-color: #e8e7e6;
     width: 180px;
