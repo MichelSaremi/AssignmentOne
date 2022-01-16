@@ -10,10 +10,12 @@ let MaxLoan = balanceSum*2
 let buttonLoan = document.getElementById('loan')
 
 buttonLoan.onclick = () => {
-	const loanRequest = Number(window.prompt("How much would you like to loan?\n You can loan maximum: "+MaxLoan));
+	
+    MaxLoan = (Number(document.getElementById("balance").innerText))*2
+
+    const loanRequest = Number(window.prompt("How much would you like to loan?\n You can loan maximum: "+MaxLoan));
     loanText.style.display='block'
 
-    MaxLoan = (Number(document.getElementById("balance").innerText))*2
 
     if (Number(loanSum.innerText) != 0){
         alert("You cannot have more than one active loan at a time")
