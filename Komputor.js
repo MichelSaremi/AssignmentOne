@@ -130,7 +130,9 @@ buttonRepay.onclick = () => {
 const laptopList = document.getElementById("laptopList")
 const laptopTitle = [];
 const laptopSpecs = [];
-
+const laptopDescrip = [];
+const laptopPrice = [];
+const laptopImage = [];
 
 fetch("https://noroff-komputer-store-api.herokuapp.com/computers")
 
@@ -142,6 +144,9 @@ fetch("https://noroff-komputer-store-api.herokuapp.com/computers")
     for(laptop of laptopObj){
         laptopTitle.push(laptop.title)
         laptopSpecs.push(laptop.specs)
+        laptopDescrip.push(laptop.description)
+        laptopPrice.push(laptop.price)
+        laptopImage.push(laptop.image)
     }
     //////////populationg dropdown list
     for(let i=0; i<laptopTitle.length; i++){
@@ -155,6 +160,9 @@ fetch("https://noroff-komputer-store-api.herokuapp.com/computers")
     console.log(error)
 })
 
+const ImagePlace = document.getElementById("image")
+ImagePlace.style.display ='none'
+
 function getValueAndDisplay(){
     const Choice = document.getElementById("laptopList").value
     const features = document.getElementById("info")
@@ -167,5 +175,28 @@ function getValueAndDisplay(){
 
     }
     features.innerText = specList
+    ///////////////laptop info
+
+    const Header = document.getElementById("LaptopHeader")
+    const Description = document.getElementById("LaptopDescription")
+    const Price = document.getElementById("LaptopPrice")
+
+    Header.innerText = Choice
+
+    DescriptionText = laptopDescrip[index]
+    Description.innerText = DescriptionText
+
+    PriceText = laptopPrice[index]
+    Price.innerText = PriceText+" "
+
+    //////////////////Laptop images
+    ImagePlace.style.display ='block'
+    ImagePlace.style.height = '150px'
+    ImagePlace.style.width = '150px'
     
+    let image = laptopImage[index]
+
+    let imageURL = "https://noroff-komputer-store-api.herokuapp.com/"+image
+
+    ImagePlace.src = imageURL
 }
