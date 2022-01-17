@@ -2,12 +2,13 @@
 
 //refering to the html elements
 let loanSum = document.getElementById("loanT")
+let loanSumNumber = Number(document.getElementById("loanT").innerText)
+
 let loanText = document.getElementById("loanText")
 loanText.style.display ='none'
 
-let balanceSum = Number(document.getElementById("balance").innerText)
-
-let MaxLoan = balanceSum*2
+let balance = document.getElementById("balance")
+let balanceNumber = Number(document.getElementById("balance").innerText)
 
 let buttonLoan = document.getElementById('loan')
 
@@ -33,8 +34,8 @@ buttonLoan.onclick = () => {
     }else{
         loanSum.innerText = loanRequest
         buttonRepay.style.display='block'
-        balanceSum = balanceSum + loanRequest
-        balance.innerText = balanceSum
+        balanceNumber = balanceNumber + loanRequest
+        balance.innerText = balanceNumber
     }
 }
 }
@@ -44,6 +45,7 @@ buttonLoan.onclick = () => {
 ///Work button
 let buttonWork = document.getElementById('WorkButton')
 let PaySum = document.getElementById("pay")
+
 
 //When work button is clicked
 buttonWork.onclick = () => {
@@ -58,40 +60,36 @@ buttonWork.onclick = () => {
 // relevant references to the html elements
 let buttonBank = document.getElementById('BankButton')
 
-let loanSum2 = document.getElementById("loanT")
-
-let balanceSum2 = document.getElementById("balance")
-let balanceSum2Number = Number(document.getElementById("balance").innerText)
-
 //When bank button is clicked
 buttonBank.onclick = () => {
     
     //what happens when there is an active loan
-    let loanSum2Number = Number(document.getElementById("loanT").innerText)
-    if (loanSum2Number!=0){
-        let PaySumNumber = Number(document.getElementById("pay").innerText)
+    let loanSumNumber = Number(document.getElementById("loanT").innerText)
+    let PaySumNumber = Number(document.getElementById("pay").innerText)
+
+    if (loanSumNumber!=0){
+        
         let ToBank = PaySumNumber*0.9
         let ToLoan = PaySumNumber*0.1
 
-        balanceSum2Number = balanceSum2Number + ToBank
-        balanceSum2.innerText = balanceSum2Number
+        balanceNumber = balanceNumber + ToBank
+        balance.innerText = balanceNumber
 
-        loanSum2Number = loanSum2Number - ToLoan
-        loanSum2.innerText = loanSum2Number
+        loanSumNumber = loanSumNumber - ToLoan
+        loanSum.innerText = loanSumNumber
 
         PaySumNumber = 0
         PaySum.innerText = 0
         
         //what happens when loan is negative
-        if (loanSum2Number<0){
-            loanSum2Number = 0
-            loanSum2.innerText = loanSum2Number
+        if (loanSumNumber<0){
+            loanSumNumber = 0
+            loanSum.innerText = loanSumNumber
         }
     //What happens when there is no loan   
-    }else if (loanSum2Number==0){
-        let PaySumNumber = Number(document.getElementById("pay").innerText)
-        balanceSum2Number = balanceSum2Number + PaySumNumber
-        balanceSum2.innerText = balanceSum2Number
+    }else if (loanSumNumber==0){
+        balanceNumber = balanceNumber + PaySumNumber
+        balance.innerText = balanceNumber
         PaySumNumber = 0
         PaySum.innerText = PaySumNumber
     }
@@ -107,29 +105,25 @@ buttonRepay.style.display ='none'
 buttonRepay.onclick = () => {
     
     //Make html references
-    let loanSum3 = document.getElementById("loanT")
-    let loanSum3Number = Number(document.getElementById("loanT").innerText)
-
+    let loanSum = document.getElementById("loanT")
+    let loanSumNumber = Number(document.getElementById("loanT").innerText)
     let PaySumNumber = Number(document.getElementById("pay").innerText)
-    
-    let balance3 = document.getElementById("balance")
-    let balance3Number = Number(document.getElementById("balance").innerText)
    
     //code if loan is higher than pay
-    if (loanSum3Number>PaySumNumber){
-        Result = loanSum3Number - PaySumNumber
+    if (loanSumNumber>PaySumNumber){
+        Result = loanSumNumber - PaySumNumber
         loanSum.innerText = Result
         PaySumNumber = 0
         PaySum.innerText = PaySumNumber
     
     //code if loan is lower than pay
-    }else if(PaySumNumber>loanSum3Number){
-        Result = PaySumNumber - loanSum3Number
-        balance3Number = balance3Number + Result
-        balance3.innerText =  balance3Number
+    }else if(PaySumNumber>loanSumNumber){
+        Result = PaySumNumber - loanSumNumber
+        balanceNumber = balanceNumber + Result
+        balance.innerText =  balanceNumber
         
-        loanSum3Number = 0
-        loanSum3.innerText = loanSum3Number
+        loanSumNumber = 0
+        loanSum.innerText = loanSumNumber
         PaySumNumber = 0
         PaySum.innerText = PaySumNumber
 
@@ -137,8 +131,8 @@ buttonRepay.onclick = () => {
     }else{
         PaySumNumber = 0
         PaySum.innerText = PaySumNumber
-        loanSum3Number = 0
-        loanSum3.innerText = loanSum3Number
+        loanSumNumber = 0
+        loanSum.innerText = loanSumNumber
     }
 }
 
@@ -244,21 +238,19 @@ function getValueAndDisplay(){
 
 //referencing to html elements
 let buttonBuy = document.getElementById("BuyButton")
-let balanceSum3 = document.getElementById("balance")
 
 //code when buy button is clicked
-buttonBuy.onclick = () => { 
-        let balanceSum3Number = Number(document.getElementById("balance").innerText)
+buttonBuy.onclick = () => {
         
         //Code if funds are insufficient 
-        if (PriceNumberLargerScope>balanceSum3Number){
+        if (PriceNumberLargerScope>balanceNumber){
             alert("You do not have sufficient funds to buy this Laptop")
         
             //Code if funds are sufficient 
-        }else if (balanceSum3Number>=PriceNumberLargerScope){
+        }else if (balanceNumber>=PriceNumberLargerScope){
             alert("You are now the proud owner of the "+ChoiceLargerScope)
-            balanceSum3Number = balanceSum3Number - PriceNumberLargerScope
-            balanceSum3.innerText = balanceSum3Number
+            balanceNumber = balanceNumber - PriceNumberLargerScope
+            balance.innerText = balanceNumber
         }
 
 }
