@@ -71,8 +71,14 @@ buttonBank.onclick = () => {
         
         let ToBank = PaySumNumber*0.9
         let ToLoan = PaySumNumber*0.1
+        let ExtraToBankLargerScope = ""
+        
+        if (ToLoan>loanSumNumber){
+            let ExtraToBank = ToLoan-loanSumNumber
+            ExtraToBankLargerScope = ExtraToBank
+        }
 
-        balanceNumber = balanceNumber + ToBank
+        balanceNumber = balanceNumber + ToBank + ExtraToBankLargerScope
         balance.innerText = balanceNumber
 
         loanSumNumber = loanSumNumber - ToLoan
