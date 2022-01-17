@@ -5,13 +5,25 @@ body {
 #bankPanel, #workPanel, #laptopSelect {
     padding: 10px 20px 20px 20px;
     background-color: #e8e7e6;
-    width: 180px;
+    width: 200px;
+    margin: 10px;
+}
+
+#laptopSelect {
+    position: absolute;
+    top: 0px;
+    left: 260px;
 }
 
 #laptopInfo {
     padding: 10px 20px 20px 20px;
     background-color: #e8e7e6;
-    width: 720px;
+    width: 350px;
+    margin: 10px;
+    position: absolute;
+    top: 0px;
+    left: 510px;
+
 }
 
 #balance{
