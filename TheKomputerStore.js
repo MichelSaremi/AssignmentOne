@@ -25,7 +25,7 @@ buttonLoan.onclick = () => {
         alert("You cannot have more than one active loan at a time")
     }else{
     
-    //Regular expression that input must be all digit from start to end
+    //Regular expression that says input must be all digit from start to end
     if (/^\d+$/.test(loanRequest) == false){
         alert("Must be a number")
     }
