@@ -2,20 +2,17 @@
 
 //refering to the html elements
 let loanSum = document.getElementById("loanT")
-let loanSumNumber = Number(document.getElementById("loanT").innerText)
-
 let loanText = document.getElementById("loanText")
 loanText.style.display ='none'
 
 let balance = document.getElementById("balance")
-let balanceNumber = Number(document.getElementById("balance").innerText)
-
 let buttonLoan = document.getElementById('loan')
 
 //To happen when loan button is clicked
 buttonLoan.onclick = () => {
 	
-    MaxLoan = (Number(document.getElementById("balance").innerText))*2
+    let balanceNumber = Number(document.getElementById("balance").innerText)
+    MaxLoan = balanceNumber*2
 
     //window with input request
     const loanRequest = Number(window.prompt("How much would you like to loan?\n You can loan maximum: "+MaxLoan));
@@ -49,6 +46,7 @@ let PaySum = document.getElementById("pay")
 
 //When work button is clicked
 buttonWork.onclick = () => {
+    
     let PaySumNumber = Number(document.getElementById("pay").innerText)
     PaySumNumber = PaySumNumber + 100
     PaySum.innerText = PaySumNumber
@@ -66,6 +64,7 @@ buttonBank.onclick = () => {
     //what happens when there is an active loan
     let loanSumNumber = Number(document.getElementById("loanT").innerText)
     let PaySumNumber = Number(document.getElementById("pay").innerText)
+    let balanceNumber = Number(document.getElementById("balance").innerText)
 
     if (loanSumNumber!=0){
         
@@ -111,10 +110,10 @@ buttonRepay.style.display ='none'
 buttonRepay.onclick = () => {
     
     //Make html references
-    let loanSum = document.getElementById("loanT")
     let loanSumNumber = Number(document.getElementById("loanT").innerText)
     let PaySumNumber = Number(document.getElementById("pay").innerText)
-   
+    let balanceNumber = Number(document.getElementById("balance").innerText)
+
     //code if loan is higher than pay
     if (loanSumNumber>PaySumNumber){
         Result = loanSumNumber - PaySumNumber
@@ -248,6 +247,8 @@ let buttonBuy = document.getElementById("BuyButton")
 //code when buy button is clicked
 buttonBuy.onclick = () => {
         
+        let balanceNumber = Number(document.getElementById("balance").innerText)
+    
         //Code if funds are insufficient 
         if (PriceNumberLargerScope>balanceNumber){
             alert("You do not have sufficient funds to buy this Laptop")
