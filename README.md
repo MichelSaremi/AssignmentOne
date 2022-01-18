@@ -1,7 +1,7 @@
 # AssignmentOne
 
-The repository for assignment one from Experis Acadmy, 
-The html, css and js files for The komputer store app
+The repository for assignment one from Experis Acadmy. 
+Contains the html, css and js files for The komputer store app
 
 ## Dependecies
 Nothing! 
