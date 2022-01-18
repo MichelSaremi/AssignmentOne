@@ -1,6 +1,6 @@
 /////////////////////////Bank part
 
-//refering to the html elements
+//referring to html elements
 let loanText = document.getElementById("loanText")
 loanText.style.display ='none'
 
@@ -58,17 +58,17 @@ buttonWork.onclick = () => {
 
 ///Bank button
 
-// relevant references to the html elements
+// relevant reference to an html element
 let buttonBank = document.getElementById('BankButton')
 
 //When bank button is clicked
 buttonBank.onclick = () => {
     
-    //what happens when there is an active loan
     let loanSumNumber = Number(document.getElementById("loanT").innerText)
     let PaySumNumber = Number(document.getElementById("pay").innerText)
     let balanceNumber = Number(document.getElementById("balance").innerText)
 
+    //what happens when there is an active loan
     if (loanSumNumber!=0){
         
         let ToBank = PaySumNumber*0.9
@@ -244,7 +244,7 @@ function getValueAndDisplay(){
 
 ///The buy button
 
-//referencing to html elements
+//referencing the html element
 let buttonBuy = document.getElementById("BuyButton")
 
 //code when buy button is clicked
