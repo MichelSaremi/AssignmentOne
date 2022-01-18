@@ -25,6 +25,7 @@ buttonLoan.onclick = () => {
         alert("You cannot have more than one active loan at a time")
     }else{
     
+    //Regular expression that input must be all digit from start to end
     if (/^\d+$/.test(loanRequest) == false){
         alert("Must be a number")
     }
@@ -155,7 +156,7 @@ const laptopDescrip = [];
 const laptopPrice = [];
 const laptopImage = [];
 
-//Fetching the date to populate above arrays
+//Fetching the data to populate above arrays
 fetch("https://noroff-komputer-store-api.herokuapp.com/computers")
 
 .then(function(response){
