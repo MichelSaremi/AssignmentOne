@@ -1,11 +1,13 @@
 /////////////////////////Bank part
 
 //refering to the html elements
-let loanSum = document.getElementById("loanT")
 let loanText = document.getElementById("loanText")
 loanText.style.display ='none'
 
+let loanSum = document.getElementById("loanT")
+
 let balance = document.getElementById("balance")
+
 let buttonLoan = document.getElementById('loan')
 
 //To happen when loan button is clicked
