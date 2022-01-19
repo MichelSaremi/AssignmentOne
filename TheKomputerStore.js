@@ -245,7 +245,7 @@ function getValueAndDisplay(){
 ///The buy button
 
 //referencing the html element
-const buttonBuy = document.getElementById("BuyButton")
+ buttonBuy = document.getElementById("BuyButton")
 
 //code when buy button is clicked
 buttonBuy.onclick = () => {
