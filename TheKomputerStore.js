@@ -1,14 +1,14 @@
 /////////////////////////Bank part
 
 //referring to html elements
-let loanText = document.getElementById("loanText")
+const loanText = document.getElementById("loanText")
 loanText.style.display ='none'
 
-let loanSum = document.getElementById("loanT")
+const loanSum = document.getElementById("loanT")
 
-let balance = document.getElementById("balance")
+const balance = document.getElementById("balance")
 
-let buttonLoan = document.getElementById('loan')
+const buttonLoan = document.getElementById('loan')
 
 //To happen when loan button is clicked
 buttonLoan.onclick = () => {
@@ -43,8 +43,8 @@ buttonLoan.onclick = () => {
 //////////////////////////Work part 
 
 ///Work button
-let buttonWork = document.getElementById('WorkButton')
-let PaySum = document.getElementById("pay")
+const buttonWork = document.getElementById('WorkButton')
+const PaySum = document.getElementById("pay")
 
 
 //When work button is clicked
@@ -59,7 +59,7 @@ buttonWork.onclick = () => {
 ///Bank button
 
 // relevant reference to an html element
-let buttonBank = document.getElementById('BankButton')
+const buttonBank = document.getElementById('BankButton')
 
 //When bank button is clicked
 buttonBank.onclick = () => {
@@ -106,7 +106,7 @@ buttonBank.onclick = () => {
 
 
 ///Repay button
-let buttonRepay = document.getElementById('RepayButton')
+const buttonRepay = document.getElementById('RepayButton')
 buttonRepay.style.display ='none'
 
 //When repay loan button is clicked
@@ -245,7 +245,7 @@ function getValueAndDisplay(){
 ///The buy button
 
 //referencing the html element
-let buttonBuy = document.getElementById("BuyButton")
+const buttonBuy = document.getElementById("BuyButton")
 
 //code when buy button is clicked
 buttonBuy.onclick = () => {
